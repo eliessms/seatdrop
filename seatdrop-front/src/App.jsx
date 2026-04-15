@@ -1,4 +1,5 @@
 import Header from './components/layout/Header'
+import BottomNav from './components/layout/BottomNav'
 import LiveBanner from './components/home/LiveBanner'
 import MatchHero from './components/home/MatchHero'
 import FanDrawBlock from './components/home/FanDrawBlock'
@@ -12,6 +13,7 @@ function App() {
       <MatchHero />
       <FanDrawBlock />
       <ListingList />
+      <BottomNav />
     </div>
   )
 }
