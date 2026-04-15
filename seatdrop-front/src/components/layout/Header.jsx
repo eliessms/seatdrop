@@ -1,4 +1,8 @@
+import { useNavigate } from 'react-router-dom'
+
 function Header() {
+  const navigate = useNavigate()
+
   return (
     <div className="bg-navy px-4 pt-4">
       
@@ -17,10 +21,14 @@ function Header() {
 
         {/* Boutons */}
         <div className="flex gap-2 items-center">
-          <button className="px-3 py-1.5 text-white border border-white/30 rounded-md font-condensed font-bold text-sm">
+          <button
+            onClick={() => navigate('/login')}
+            className="px-3 py-1.5 text-white border border-white/30 rounded-md font-condensed font-bold text-sm">
             Connexion
           </button>
-          <button className="px-3 py-1.5 bg-green text-white rounded-md font-condensed font-bold text-sm">
+          <button
+            onClick={() => navigate('/register')}
+            className="px-3 py-1.5 bg-green text-white rounded-md font-condensed font-bold text-sm">
             S'inscrire
           </button>
         </div>

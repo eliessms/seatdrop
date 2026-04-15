@@ -1,20 +1,21 @@
-import Header from './components/layout/Header'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import BottomNav from './components/layout/BottomNav'
-import LiveBanner from './components/home/LiveBanner'
-import MatchHero from './components/home/MatchHero'
-import FanDrawBlock from './components/home/FanDrawBlock'
-import ListingList from './components/home/ListingList'
+import Home from './pages/Home'
+import Login from './pages/Login'
+import Register from './pages/Register'
 
 function App() {
   return (
-    <div className="max-w-sm mx-auto min-h-screen pb-20">
-      <Header />
-      <LiveBanner />
-      <MatchHero />
-      <FanDrawBlock />
-      <ListingList />
-      <BottomNav />
-    </div>
+    <BrowserRouter>
+      <div className="max-w-sm mx-auto min-h-screen pb-20">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+        <BottomNav />
+      </div>
+    </BrowserRouter>
   )
 }
 
