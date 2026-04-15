@@ -1,21 +1,19 @@
+import { useNavigate } from 'react-router-dom'
+
 function ListingCard({ listing }) {
+  const navigate = useNavigate()
+
   return (
     <div className="bg-white rounded-xl border border-light p-3 flex justify-between items-center">
 
       {/* Infos gauche */}
       <div className="flex-1">
-
-        {/* Match */}
         <p className="font-condensed font-bold text-sm uppercase tracking-wide text-navy">
           {listing.match.equipe_domicile} vs {listing.match.equipe_exterieur}
         </p>
-
-        {/* Zone */}
         <p className="text-xs text-muted mt-0.5">
           📍 {listing.zone_placement}
         </p>
-
-        {/* Vendeur + note */}
         <div className="flex items-center gap-2 mt-1.5">
           <span className="text-xs text-muted">
             @{listing.vendeur.pseudo}
@@ -29,7 +27,6 @@ function ListingCard({ listing }) {
             </span>
           )}
         </div>
-
       </div>
 
       {/* Prix + bouton droite */}
@@ -37,8 +34,10 @@ function ListingCard({ listing }) {
         <span className="font-condensed font-black text-2xl text-navy">
           {listing.prix}€
         </span>
-        <button className={`px-3 py-1.5 rounded-lg font-condensed font-bold text-sm text-white
-          ${listing.mode === 'enchere' ? 'bg-orange' : 'bg-green'}`}>
+        <button
+          onClick={() => navigate(`/listing/${listing.id}`)}
+          className={`px-3 py-1.5 rounded-lg font-condensed font-bold text-sm text-white
+            ${listing.mode === 'enchere' ? 'bg-orange' : 'bg-green'}`}>
           {listing.mode === 'enchere' ? 'Enchérir' : 'Acheter'}
         </button>
       </div>
